@@ -1,0 +1,6 @@
+node_modules/
+.env*
+*.pdf
+Test-Results.md
+test-results.json
+actual-results.json
