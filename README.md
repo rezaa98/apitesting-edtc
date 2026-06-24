@@ -55,7 +55,7 @@ npm run test
 To manually generate the PDF report from existing test results:
 ```bash
 node generate-report.js
-npx -y markdown-pdf -s report-style.css --paper-format A4 Test-Results.md
+npx -y md-to-pdf Test-Results.md --stylesheet report-style.css
 ```
 
 The execution will output a `Test-Results.pdf` file containing a neat, tabular report with the actual test outcomes.

@@ -35,7 +35,7 @@ jobs:
       if: always() # Pastikan report tetap digenerate walaupun test gagal
       run: |
         node generate-report.js
-        npx -y markdown-pdf -s report-style.css --paper-format A4 Test-Results.md
+        npx -y md-to-pdf Test-Results.md --stylesheet report-style.css
 
     - name: Upload PDF Report Artifact
       if: always()
