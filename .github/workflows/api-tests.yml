@@ -29,7 +29,7 @@ jobs:
       env:
         # API Key diambil dari konfigurasi GitHub Secrets
         REQRES_API_KEY: ${{ secrets.REQRES_API_KEY }}
-      run: npm run test
+      run: npm run test -- --reporter json > test-results.json
 
     - name: Generate PDF Report
       if: always() # Pastikan report tetap digenerate walaupun test gagal
