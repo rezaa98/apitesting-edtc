@@ -31,7 +31,7 @@ The test suite covers Positive, Negative, and Edge case scenarios for the follow
 1. Clone the repository:
    ```bash
    git clone https://github.com/rezaa98/apitesting-edtc.git
-   cd apitesting-edtc/API\ Testing
+   cd apitesting-edtc
    ```
 2. Install all dependencies:
    ```bash
