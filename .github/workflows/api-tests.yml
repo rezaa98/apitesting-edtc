@@ -31,16 +31,15 @@ jobs:
         REQRES_API_KEY: ${{ secrets.REQRES_API_KEY }}
       run: npm run test -- --reporter json > test-results.json
 
-    - name: Generate PDF Report
+    - name: Generate Markdown Report
       if: always() # Pastikan report tetap digenerate walaupun test gagal
       run: |
         node generate-report.js
-        npx -y md-to-pdf Test-Results.md --stylesheet report-style.css
 
-    - name: Upload PDF Report Artifact
+    - name: Upload Markdown Report Artifact
       if: always()
       uses: actions/upload-artifact@v4
       with:
         name: API-Test-Report
-        path: 'Test-Results.pdf'
+        path: 'Test-Results.md'
         retention-days: 7

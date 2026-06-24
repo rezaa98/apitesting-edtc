@@ -52,13 +52,12 @@ Run the test suite and automatically generate the Markdown & PDF report:
 npm run test
 ```
 
-To manually generate the PDF report from existing test results:
+To manually generate the Markdown report from existing test results:
 ```bash
 node generate-report.js
-npx -y md-to-pdf Test-Results.md --stylesheet report-style.css
 ```
 
-The execution will output a `Test-Results.pdf` file containing a neat, tabular report with the actual test outcomes.
+The execution will output a `Test-Results.md` file containing a neat, tabular report with the actual test outcomes.
 
 ## ⚙️ CI/CD Pipeline (GitHub Actions)
 
@@ -72,9 +71,9 @@ The pipeline configuration can be found in `.github/workflows/api-tests.yml`.
 ### Pipeline Steps:
 1. **Setup**: Checks out the code and sets up Node.js v18.
 2. **Install**: Runs `npm ci` to install exact dependency versions.
-3. **Test**: Executes `npm run test`. *(Requires `REQRES_API_KEY` to be configured in GitHub Repository Secrets).*
-4. **Report**: Automatically generates the `Test-Results.pdf` using our custom script.
-5. **Artifact**: Uploads the generated PDF as a downloadable Build Artifact.
+3. **Test**: Executes `npm run test -- --reporter json > test-results.json`. *(Requires `REQRES_API_KEY` to be configured in GitHub Repository Secrets).*
+4. **Report**: Automatically generates the `Test-Results.md` using our custom script.
+5. **Artifact**: Uploads the generated Markdown file as a downloadable Build Artifact.
 
 ### Important: GitHub Secrets
 For the CI pipeline to run successfully, you must add your API Key to the repository secrets:
